@@ -10,6 +10,14 @@ function pkill(){
 	wmic Path win32_process Where "CommandLine Like '%$2%'" Call Terminate
 }
 
+function fix_logitech_headset()
+{
+	taskkill //f //im lcore.exe
+	sleep 1
+	start "" "/c/Program Files/Logitech Gaming Software/LCore.exe"
+	sleep 5
+}
+
 function open_Program()
 {
 	DIR=$(dirname "${1}")
